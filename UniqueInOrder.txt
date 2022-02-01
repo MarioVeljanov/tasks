@@ -1,0 +1,41 @@
+function uniqueInOrder(iterable) {
+    let a = 1;
+    let arr = [];
+    if (iterable.length == 0) {
+        return [];
+    } else if (typeof iterable == 'object') {
+        arr.push(iterable[0]);
+        nextPrime: for (let i = 0; i <= iterable.length; i++) {
+            for (let k = 1; k <= iterable.length; k++) {
+                if (arr[i] == iterable[a]) {
+                    a++;
+                } else if (a == iterable.length) {
+                    break nextPrime;
+                } else {
+                    arr.push(iterable[a])
+                    continue nextPrime;
+                }
+            }
+        }
+        return arr;
+    } else {
+        let array = String(iterable).split('');
+        arr.push(array[0]);
+        nextPrime: for (let i = 0; i <= array.length; i++) {
+            for (let k = 1; k <= array.length; k++) {
+                if (arr[i] == array[a]) {
+                    a++;
+                } else if (a == array.length) {
+                    break nextPrime;
+                } else {
+                    arr.push(array[a])
+                    continue nextPrime;
+                }
+            }
+        }
+        return arr;
+    }
+    
+}
+
+console.log(uniqueInOrder([1, 3, 3, 3, 2, 2, 4, 4, 5, 6, 7, 1, 1, 3]));

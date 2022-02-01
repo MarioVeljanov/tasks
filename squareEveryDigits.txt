@@ -1,0 +1,7 @@
+function squareDigits(num) {
+    let arr = String(num).split('');
+    arr = arr.map(item => item ** 2);
+    return Number(arr.join(''));
+}
+
+console.log(squareDigits(2112));
