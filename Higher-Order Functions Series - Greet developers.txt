@@ -1,0 +1,22 @@
+function greetDevelopers(list) {
+    
+    for(let i = 0; i < list.length; i++) {
+        for(let key in list[i]) {
+            if(key == 'firstName') {
+                list[i].greeting = 'Hi ' + list[i][key] + ', ';
+            }
+            if (key == 'language') {
+                list[i].greeting += `what do you like the most about ${list[i][key]}?`;
+            }
+        }
+    }
+    return list;
+}
+
+let list1 = [
+    { firstName: 'Sofia', lastName: 'I.', country: 'Argentina', continent: 'Americas', age: 35, language: 'Java' },
+    { firstName: 'Lukas', lastName: 'X.', country: 'Croatia', continent: 'Europe', age: 35, language: 'Python' },
+    { firstName: 'Madison', lastName: 'U.', country: 'United States', continent: 'Americas', age: 32, language: 'Ruby' } 
+  ];
+
+console.log(greetDevelopers(list1));
