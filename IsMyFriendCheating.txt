@@ -5,10 +5,8 @@ function removeNb (n) {
     
     for(let i = 1; i < n; i++) {
         y = parseInt((s - i)/(i + 1));
-        if(y < n) {
-            if(i*y == s - (i + y)) {
-                arr.push([i, y]);
-            }
+        if(y < n && i*y == s - (i + y)) {
+            arr.push([i, y]);
         }
         
     }
