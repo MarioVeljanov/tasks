@@ -1,0 +1,23 @@
+function removeNb (n) {
+    let arr = [];
+    let s = ((1 + n)*n)/2;
+    let y;
+    
+    for(let i = 1; i < n; i++) {
+        y = parseInt((s - i)/(i + 1));
+        if(y < n) {
+            if(i*y == s - (i + y)) {
+                arr.push([i, y]);
+            }
+        }
+        
+    }
+    if(arr.length == 0) {
+        return [];
+    }
+    return arr;
+}
+
+
+
+console.log(removeNb(101));
