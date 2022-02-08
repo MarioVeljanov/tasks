@@ -1,0 +1,12 @@
+function tankvol(h, d, vt) {
+    const D = d/2;
+    let lenCilindar = vt/(Math.PI*(D)**2);
+    let a = Math.acos(1 - (h/D))*2;
+    let s = ((D**2)/2)*(a - Math.sin(a));
+    
+    return parseInt(s*lenCilindar);
+    
+    
+
+}
+console.log(tankvol(2, 7, 3848));
