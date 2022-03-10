@@ -1,0 +1,38 @@
+function tapCodeTranslation(text) {
+    let arr = [
+        ['a', 'b', 'c', 'd', 'e', 'k'], 
+        ['f', 'g', 'h', 'i', 'j'], 
+        ['l', 'm', 'n', 'o', 'p'],
+        ['q', 'r', 's', 't', 'u'],
+        ['v', 'w', 'x', 'y', 'z'],
+        
+    ];
+    let dot = ['.', '..', '...', '....', '.....'];
+    let array = text.split('');
+    let array1 = [];
+    let str = [];
+
+    for(let i = 0; i <= array.length; i++) {
+        for(let j = 0; j <= arr.length; j++) {
+            if(undefined !== arr[j] && arr[j].includes(array[i])) {
+                for(let w = 0; w <= arr[j].length; w++) {
+                    if(arr[j][w] == array[i]) {
+                        array1.push(j, w);
+                    }
+                    if(array[i] == 'k') {
+                        array1.push(0, 2);
+                        break;
+                    }
+
+                }
+                
+            }
+            
+        }
+    }
+    for(let a in array1) {
+        str.push(dot[array1[a]]);
+    }
+
+    return str.join(' ');
+}
