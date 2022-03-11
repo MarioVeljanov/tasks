@@ -1,0 +1,85 @@
+function pickWord() {
+    const words = [
+        "программа",
+        "макака",
+        "прекрасный",
+        "оладушек"
+    ];
+    return words[Math.floor(Math.random() * words.length)];
+}
+
+
+function setupAnswerArray(word) {
+    let answer = [];
+    for(let key in word) {
+        answer[key] = '_';
+    }
+    return answer;
+}
+
+function showPlayerProgress(answer) {
+    alert(answer.join(' '));
+}
+
+function getGuess() {
+    let guess = prompt(`Угадайте букву или нажмите Отмена для выхода из игры.`).toLowerCase();
+    return guess;
+}
+
+function updateGameState(guess, words, answer, attempt) {
+    let appearances = 0;
+    
+    let k = attempt;
+    for(let i = 0; i < words.length; i++) {
+        if(answer[i] === guess) {
+            alert('Эта буква уже была');
+            k--;
+            break;
+        } else if(words[i] === guess) {
+            answer[i] = guess;
+            appearances++;
+            k--;
+        } 
+        
+    }
+    if(k === attempt) {
+        attempt--;
+    }
+    return [appearances, attempt];
+}
+
+function showAnswerAndCongratulatePlayer(answer, attempt) {
+    if(attempt === 0) {
+        alert(`К сожалению вы не угадали слово. Это было ${answer}`);
+    } else {
+        alert(answer.join(" "));
+        alert("Отлично! Было загадано слово " + answer);
+    }
+}   
+
+let word = pickWord();
+let answer = setupAnswerArray(word);
+let remaingLetters = word.length;
+let attempt = 5;
+
+while(remaingLetters > 0 && attempt !== 0) {
+    showPlayerProgress(answer);
+    alert(`У вас есть ${attempt} попыток`);
+    let guess = getGuess();
+    
+
+    if(guess === null) {
+        break;
+    } else if(guess.length !== 1) {
+        alert("Пожалуйста, введите только одну букву.");
+    } else {
+        let correctGuesses = updateGameState(guess, word, answer, attempt);
+        remaingLetters -= correctGuesses[0];
+        attempt = correctGuesses[1];
+
+    }
+
+
+}
+
+showAnswerAndCongratulatePlayer(word, attempt);
