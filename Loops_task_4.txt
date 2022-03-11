@@ -1,0 +1,16 @@
+const input = "javascript is awesome";
+let otput = '';
+
+for(let key in input) {
+    if(input[key] == 'a') {
+        otput += 4;
+    } else if(input[key] == 'e') {
+        otput += 3;
+    } else if(input[key] == 'i') {
+        otput += 1;
+    } else if(input[key] == 'o') {
+        otput += 0;
+    } else {
+        otput += input[key];
+    }
+}

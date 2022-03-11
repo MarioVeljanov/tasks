@@ -1,0 +1,9 @@
+const alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+let string = '';
+
+while(string.length < 6) {
+    string += alphabet[Math.floor(Math.random() * alphabet.length)];
+
+}
+
+console.log(string);

@@ -1,0 +1,22 @@
+let hackerLanguage = {
+    a: 4,
+    e: 3,
+    i: 1,
+    o: 0
+};
+
+const input = "javascript is awesome";
+let otput = '';
+
+for(let i in input) {
+    for(let j in hackerLanguage) {
+        if(input[i] == j) {
+            otput += hackerLanguage[j];
+        } else {
+            otput += input[i];
+            break;
+        }
+    }
+} 
+
+console.log(otput);
