@@ -1,0 +1,47 @@
+const words = [
+    "программа",
+    "макака",
+    "прекрасный",
+    "оладушек"
+];
+let word = words[Math.floor(Math.random() * words.length)];
+let answer = [];
+let remaingLetters = word.length;
+let a = 5;
+
+for(let key in word) {
+    answer[key] = '_';
+}
+
+while(remaingLetters > 0 && a !== 0) {
+    alert(answer.join(' '));
+    let guess = prompt(`У вас есть ${a} попытки. Угадайте букву или нажмите Отмена для выхода из игры.`).toLowerCase();
+    if(guess === null) {
+        break;
+    } else if(guess.length !== 1) {
+        alert("Пожалуйста, введите только одну букву.");
+    } else {
+        let k = a;
+        for(let i = 0; i < word.length; i++) {
+            if(answer[i] == guess) {
+                alert('Эта буква уже была');
+                k--;
+                break;
+            } else if(word[i] === guess) {
+                answer[i] = guess;
+                remaingLetters--;
+                k--;
+            } 
+            
+        }
+        if(k === a) {
+            a--;
+        }
+    }
+}
+if(a === 0) {
+    alert(`К сожалению вы не угадали слово. Это было ${word}`);
+} else {
+    alert(answer.join(" "));
+    alert("Отлично! Было загадано слово " + word);
+}
