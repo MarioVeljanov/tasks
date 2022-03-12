@@ -1,0 +1,41 @@
+let speed = 10;
+let i = 0;
+let  left = 0;
+let down = 0;
+let right = 0;
+let up = 0;
+function moveBtn() {
+    if(left < 200) {
+        $('#btn').offset({left:left});
+        left++;
+    } else if(down < 200) {
+        $('#btn').offset({top: 10 + down});
+        down++;
+    } else if(right < 200) {
+        $('#btn').offset({left: 200 - right});
+        right++;
+    } else if(up < 200) {
+        $('#btn').offset({top: (10 + down) - up});
+        up++;
+    }
+    if(left === 200 && down === 200 && right === 200 && up === 200) {
+        left = 0;
+        down = 0;
+        right = 0;
+        up = 0;
+    }
+    
+}
+
+let intervalId = setInterval(moveBtn, speed);
+$('#btn').click(function() {
+    clearInterval(intervalId);
+    speed /= 10;
+    i++;
+    console.log(i);
+    if(i > 10) {
+        $('#btn').text('Вы победили!');
+    } else {
+        intervalId = setInterval(moveBtn, speed);
+    } 
+});
