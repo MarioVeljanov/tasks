@@ -1,0 +1,16 @@
+function eachCons(array, n) {
+    let arr = [];
+    let arr1 = [];
+    if(array.length === 0) {
+        return [];
+    }
+    for(let i in array) {
+        arr.push(array[i]);
+        if(arr.length === n) {
+            let a = [...arr];
+            arr1.push(a);
+            arr.shift();
+        }
+    }
+    return arr1;
+}
