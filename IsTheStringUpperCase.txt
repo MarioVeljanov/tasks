@@ -1,0 +1,7 @@
+String.prototype.isUpperCase = function() {
+  if(this.toUpperCase() == this) {
+        return true;
+    } else {
+        return false;
+    }
+}
