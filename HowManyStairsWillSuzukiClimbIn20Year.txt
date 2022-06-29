@@ -1,0 +1,9 @@
+function stairsIn20(s){
+  let sum = 0;
+    for(let i = 0; i < s.length; i++) {
+        for(let k of s[i]) {
+            sum += k;
+        }
+    }
+    return sum * 20;
+}
