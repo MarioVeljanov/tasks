@@ -1,0 +1,11 @@
+function isIsogram(str){
+    let s = str.toLowerCase().split('');
+    for(let i = 0; i < s.length; i++) {
+        for(let k = i + 1; k < s.length; k++) {
+            if(s[i] == s[k]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
