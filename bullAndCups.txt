@@ -1,0 +1,11 @@
+function cupAndBalls(b, arr){
+    let cups = [1, 2, 3];
+    cups[b - 1] = 4;
+
+    for(let i = 0; i < arr.length; i++) {
+        [cups[arr[i][0] - 1], cups[arr[i][1] - 1]] = [cups[arr[i][1] - 1], cups[arr[i][0] - 1]]; 
+        
+    }
+
+    return arr.length == 0 ? b : cups.indexOf(4) + 1;
+}
