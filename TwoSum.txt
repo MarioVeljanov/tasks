@@ -1,0 +1,11 @@
+function twoSum(nums, targets) {
+  for(let i = 0; i < nums.length; i++) {
+    for(let k = 1; k < nums.length; k++) {
+      if(i == k) {
+        continue;
+      } else if(nums[i] + nums[k] == targets) {
+        return [i, k];
+      }
+    }
+  }
+}
